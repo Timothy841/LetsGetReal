@@ -2,12 +2,6 @@ public class RationalNumber extends RealNumber
 {
   private int numerator, denominator;
 
-  public static void main(String[] args){
-    System.out.println(gcd(50,100));
-  System.out.println(gcd(14,9));
-System.out.println(gcd(4,-2));
-System.out.println(gcd(5,3));
-System.out.println(gcd(0,0));}
   /**Initialize the RationalNumber with the provided values
   *  if the denominator is 0, make the fraction 0/1 instead
   *  If the denominator is negative, negate both numerator and denominator
@@ -109,7 +103,11 @@ System.out.println(gcd(0,0));}
   *reduced after construction.
   */
   private void reduce(){
-
+    int a = gcd(getNumerator(),getDenominator());
+    if (a!=0){
+      numerator = numerator/a;
+      denominator = denominator/a;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
