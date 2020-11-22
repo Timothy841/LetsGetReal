@@ -22,6 +22,7 @@ public class RationalNumber extends RealNumber
       numerator = nume;
       denominator = deno;
     }
+    reduce();
   }
 
   public double getValue(){
@@ -52,8 +53,6 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    this.reduce();
-    other.reduce();
     if (this.getNumerator() == other.getNumerator() && this.getDenominator() == other.getDenominator()){
       return true;
     }
@@ -114,7 +113,8 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber a = new RationalNumber(getNumerator()*other.getNumerator(),getDenominator()*other.getDenominator());
+    return a;
   }
 
   /**
