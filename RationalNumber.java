@@ -2,6 +2,12 @@ public class RationalNumber extends RealNumber
 {
   private int numerator, denominator;
 
+  public static void main(String[] args){
+    System.out.println(gcd(50,100));
+  System.out.println(gcd(14,9));
+System.out.println(gcd(4,-2));
+System.out.println(gcd(5,3));
+System.out.println(gcd(0,0));}
   /**Initialize the RationalNumber with the provided values
   *  if the denominator is 0, make the fraction 0/1 instead
   *  If the denominator is negative, negate both numerator and denominator
@@ -74,9 +80,27 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    if (a==0 || b==0){
+      return 0;
+    }
+    if (a<b){
+      int c = a;
+      a = b;
+      b = c;
+    }
+    int r = 1;
+    while (r != 0){
+      r = a%b;
+      if (r == 0){
+        break;
+      }
+      a = b;
+      b = r;
+    }
+    if (b<0){
+      b = -b;
+    }
+    return b;
   }
 
   /**
