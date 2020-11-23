@@ -10,7 +10,7 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored!
-    if (deno==0){
+    if (deno==0 || nume==0){
       numerator = 0;
       denominator = 1;
     }
@@ -26,7 +26,7 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    return 0.0;
+    return (double)getNumerator()/getDenominator();
   }
 
   /**
