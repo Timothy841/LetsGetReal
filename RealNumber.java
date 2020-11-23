@@ -19,26 +19,13 @@ public class RealNumber{
   *Special case: if one is exactly zero, the other must be exactly zero.
   */
   public boolean equals(RealNumber other){
-    if (other instanceof RationalNumber){
-      int a = 1;
-      double b = this.getValue();
-      while (b%1>0){
-        b = b*10;
-        a = a*10;
-      }
-      RationalNumber that = new RationalNumber((int)b,a);
-      System.out.println(that.toString());
-      return that.equals(other);
+    if (this.getValue()==0 && other.getValue()==0){
+      return true;
     }
-    else{
-      if (this.getValue()==0 && other.getValue()==0){
-        return true;
-      }
-      if ((this.getValue()-other.getValue())/other.getValue()*100 <= .00001 && (this.getValue()-other.getValue())/other.getValue()*100 >= -.00001){
-        return true;
-      }
-      return false;
+    else if ((this.getValue()-other.getValue())/other.getValue()*100 <= .00001 && (this.getValue()-other.getValue())/other.getValue()*100 >= -.00001){
+      return true;
     }
+    return false;
   }
 
   /*
