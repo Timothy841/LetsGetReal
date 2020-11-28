@@ -1,4 +1,4 @@
-public class RationalNumber extends RealNumber
+public class RationalNumber extends Number
 {
   private int numerator, denominator;
 
@@ -9,7 +9,7 @@ public class RationalNumber extends RealNumber
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored!
+    //this value is ignored!
     if (deno==0 || nume==0){
       numerator = 0;
       denominator = 1;
@@ -64,6 +64,12 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (getNumerator()==0){
+      return "0";
+    }
+    if (getDenominator()==1){
+      return ""+getNumerator();
+    }
     return getNumerator()+"/"+getDenominator();
   }
 
